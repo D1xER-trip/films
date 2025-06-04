@@ -4,10 +4,7 @@
     npm -v
 # 2) Установите Vue CLI (если нет)
     npm install -g @vue/cli (если нету)
-# 3) Клонируйте проект
-    git clone https://github.com/Flu337/movieHUB.git
-    cd movieHUB
-# 4) Установите зависимости
+# 3) Установите зависимости
     npm install
 # 5) Запустите сервер разработки
     npm run serve
