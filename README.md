@@ -1,4 +1,4 @@
-### movieHUB запсук
+### films.py запсук
 # 1)проверка установки node
     node -v
     npm -v
