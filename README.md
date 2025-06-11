@@ -8,3 +8,4 @@ npm install -g @vue/cli (если нету)
 npm install
 4)Запустить сервер
 Запустите сервер разработки
+npm run serve

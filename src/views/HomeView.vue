@@ -2,7 +2,8 @@
   <div class="home-view">
     <h1 class="welcome-title">Здравствуйте,Добро пожаловать,Приятного просмотра</h1>
     <p class="welcome-subtitle">Ваша кинотека лучших фильмов и сериалов</p>
-    <router-link to="/catalog" class="catalog-button">Заглянуть в каталог</router-link>
+    <router-link to="/movies" class="catalog-button">Заглянуть в каталог Фильмов</router-link>
+    <router-link to="/series" class="catalog-button">Заглянуть в каталог Сериалов</router-link>
   </div>
 </template>
 
@@ -31,7 +32,7 @@ export default {
 
 .welcome-subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: #d39595;
   margin-bottom: 30px;
   animation: fadeIn 1.5s ease;
 }
@@ -40,7 +41,7 @@ export default {
   display: inline-block;
   padding: 12px 30px;
   background-color: #42b983;
-  color: white;
+  color: rgb(88, 100, 203);
   text-decoration: none;
   border-radius: 4px;
   font-size: 1.1rem;

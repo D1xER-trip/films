@@ -1,59 +1,108 @@
 <template>
-  <div class="catalog-view">
-    <h1>Каталог фильмов</h1>
-    <SearchBar v-model="searchTerm" />
-    <div class="movies-container">
-      <CatalogItem v-for="movie in filteredMovies" :key="movie.id" :movie="movie" />
+  <div class="home-view">
+    <h1 class="welcome-title">Здравствуйте, Добро пожаловать, Приятного просмотра</h1>
+    <p class="welcome-subtitle">Ваша кинотека лучших фильмов и сериалов</p>
+    <div class="buttons-container">
+      <router-link to="/movies" class="catalog-button">Заглянуть в каталог Фильмов</router-link>
+      <router-link to="/series" class="catalog-button series-button">Заглянуть в каталог Сериалов</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
-import movies from '@/data/movies.json'
-import CatalogItem from '@/components/CatalogItem.vue'
-import SearchBar from '@/components/SearchBar.vue'
-
 export default {
-  components: {
-    CatalogItem,
-    SearchBar
-  },
-  setup() {
-    const searchTerm = ref('')
-
-    const filteredMovies = computed(() => {
-      if (!searchTerm.value) return movies
-      const term = searchTerm.value.toLowerCase()
-      return movies.filter(movie => 
-        movie.title.toLowerCase().includes(term) ||
-        movie.genre.toLowerCase().includes(term)
-      )
-    })
-
-    return {
-      searchTerm,
-      filteredMovies
-    }
-  }
+  name: 'HomeView'
 }
 </script>
 
 <style scoped>
-.catalog-view {
-  max-width: 1200px;
-  margin: 0 auto;
+.home-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
   padding: 20px;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
+.welcome-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease;
 }
 
-.movies-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+  animation: fadeIn 1.5s ease;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.catalog-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #42b983;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  animation: pulse 2s infinite;
+}
+
+.series-button {
+  background-color: #647eff;
+  animation-delay: 0.5s;
+}
+
+.series-button:hover {
+  background-color: #4d63d1;
+}
+
+.catalog-button:hover {
+  background-color: #359c6d;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>

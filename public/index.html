@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
+    <div class="movie-icon">
+  <img src="movie-icon.png" alt="Фильм">
+  <span class="tooltip">Описание фильма...</span>
+</div>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -14,3 +18,31 @@
     <div id="app"></div>
   </body>
 </html>
+<style>
+  .movie-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.movie-icon .tooltip {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.movie-icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+</style>

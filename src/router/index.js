@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import CatalogView from '../views/CatalogView.vue'
+import MoviesCatalog from '../views/MoviesCatalog.vue'
+import SeriesCatalog from '../views/SeriesCatalog.vue'
+import SeriesDetail from '../views/SeriesDetail.vue'
 
 const routes = [
   {
@@ -9,14 +11,19 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/catalog',
-    name: 'catalog',
-    component: CatalogView
+    path: '/movies',
+    name: 'movies',
+    component: MoviesCatalog
   },
   {
-    path: '/details/:id',
-    name: 'details',
-    component: () => import('../components/ItemDetails.vue'),
+    path: '/series',
+    name: 'series',
+    component: SeriesCatalog
+  },
+  {
+    path: '/series/:id',
+    name: 'series-detail',
+    component: SeriesDetail,
     props: true
   }
 ]
